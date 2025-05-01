@@ -1,0 +1,22 @@
+name: prevent_orphan_pods
+description: Test for Prevent Orphan Pods policy
+policies:
+  - prevent_orphan_pods.yaml
+resources:
+  - resource.yaml
+results:
+  - policy: prevent-naked-pods
+    rule: naked-pods
+    resource: badpod01
+    kind: Pod
+    result: fail
+  - policy: prevent-naked-pods
+    rule: naked-pods
+    resource: gooddeployment01
+    kind: Deployment
+    result: pass
+  - policy: prevent-naked-pods
+    rule: naked-pods
+    resource: goodstatefulset01
+    kind: StatefulSet
+    result: pass

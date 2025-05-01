@@ -1,0 +1,10 @@
+resources:
+  - ../best-practices
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/validationFailureAction
+        value: Enforce
+    target:
+      kind: ClusterPolicy

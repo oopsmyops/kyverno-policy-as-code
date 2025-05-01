@@ -1,0 +1,46 @@
+name: restrict_binding_clusteradmin
+policies:
+  - restrict-binding-clusteradmin.yaml
+resources:
+  - resource.yaml
+results:
+  - policy: restrict-binding-clusteradmin
+    rule: clusteradmin-bindings
+    resource: badcrb01
+    kind: ClusterRoleBinding
+    result: fail
+  - policy: restrict-binding-clusteradmin
+    rule: clusteradmin-bindings
+    resource: badcrb02
+    kind: ClusterRoleBinding
+    result: fail
+  - policy: restrict-binding-clusteradmin
+    rule: clusteradmin-bindings
+    resource: goodcrb01
+    kind: ClusterRoleBinding
+    result: pass
+  - policy: restrict-binding-clusteradmin
+    rule: clusteradmin-bindings
+    resource: goodcrb02
+    kind: ClusterRoleBinding
+    result: pass
+  - policy: restrict-binding-clusteradmin
+    rule: clusteradmin-bindings
+    resource: badrb01
+    kind: RoleBinding
+    result: fail
+  - policy: restrict-binding-clusteradmin
+    rule: clusteradmin-bindings
+    resource: badrb02
+    kind: RoleBinding
+    result: fail
+  - policy: restrict-binding-clusteradmin
+    rule: clusteradmin-bindings
+    resource: goodrb01
+    kind: RoleBinding
+    result: pass
+  - policy: restrict-binding-clusteradmin
+    rule: clusteradmin-bindings
+    resource: goodrb02
+    kind: RoleBinding
+    result: pass
